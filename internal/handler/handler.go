@@ -1,16 +1,17 @@
-package handlers
+package handler
 
 import (
 	"github.com/gin-gonic/gin"
+	"man_utd/internal/service"
 	"net/http"
 )
 
 type Handler struct {
-	// service
+	service *service.Service
 }
 
-func NewHandler() *Handler {
-	return &Handler{}
+func NewHandler(service *service.Service) *Handler {
+	return &Handler{service: service}
 }
 
 func (h *Handler) InitRoutes() http.Handler {
