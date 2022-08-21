@@ -17,7 +17,7 @@ func NewHandler(service *service.Service) *Handler {
 func (h *Handler) InitRoutes() http.Handler {
 	routes := gin.New()
 
-	auth := routes.Group("auth")
+	auth := routes.Group("auth", h.UserIdentity)
 	{
 		auth.POST("sign-up", h.SignUp)
 		auth.POST("sign-in", h.SignIn)

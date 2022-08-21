@@ -7,7 +7,8 @@ import (
 
 type Authorization interface {
 	CreateUser(user entity.User) (int, error)
-	GetUser(username, password string) (entity.User, error)
+	GenerateToken(username, password string) (string, error)
+	ParseToken(token string) (int, error)
 }
 
 type News interface {

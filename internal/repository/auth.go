@@ -21,8 +21,11 @@ func (a *AuthPostgres) CreateUser(user entity.User) (int, error) {
 }
 
 func (a *AuthPostgres) GetUser(username, password string) (entity.User, error) {
-	// todo implement
-	panic("")
+	var user entity.User
+	query := `SELECT id FROM users WHERE username=$1 AND password_hash=$2`
+
+	err := a.db.Get(&user, query, username, password)
+	return user, err
 }
 
 func NewAuthPostgres(db *sqlx.DB) Authorization {
