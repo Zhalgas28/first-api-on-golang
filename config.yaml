@@ -2,7 +2,7 @@ port: 8000
 
 db:
   host: localhost
-  port: 5432
+  port: 5436
   username: postgres
-  db_name: man-united
+  db_name: postgres
   ssl_mode: disable
