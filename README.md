@@ -5,9 +5,14 @@
 - Work with PostgreSQL with <a href="https://github.com/jmoiron/sqlx">sqlx</a> library and writed SQL queries.
 - Application configuration using <a href="https://github.com/ilyakaznacheev/cleanenv">ilyakaznacheev/cleanenv</a>, Work with environment variables.
 - Registration and Authentication, Work with JWT token, Middleware.
+- Running application and Postgres with Docker, Docker-Compose.
 
 ---
 ### To run an application:
 ```
-go run man_utd/cmd/main
+make build && make run
+```
+### If app is running for the first time:
+```
+make migrate
 ```
