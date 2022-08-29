@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  man-utd:
+    build: ./
+    command: ./wait-for-db.sh db ./man-utd
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_PASSWORD=qwerty
+  db:
+    restart: always
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=qwerty
+    volumes:
+      - ./.database/postgresql/data:/var/lib/postgresql/data
+    ports:
+      - "5440:5432"
